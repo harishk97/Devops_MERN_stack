@@ -1,2 +1,2 @@
-# devops_MERN_stack
+# Devops_MERN_stack
 Containerzied Mongo-DB stack with mongo express
