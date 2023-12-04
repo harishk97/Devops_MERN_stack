@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/harishk97/Devops_MERN_stack.git'
+        git branch: 'main', url: 'https://github.com/harishk97/Devops_MERN_stack.git'
       }
     }
 /*
