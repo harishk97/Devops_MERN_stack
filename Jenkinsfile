@@ -47,6 +47,6 @@ pipeline {
           kubernetesDeploy(configs: "webapp-service.yml", kubeconfigId: "kubernetes")
         }
       }
-    }*/
+    } */
 }
 }
