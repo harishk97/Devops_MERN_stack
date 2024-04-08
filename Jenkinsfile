@@ -38,13 +38,9 @@ pipeline {
 */
     stage('Deploying App to Kubernetes') {
       steps {
-        script {
-          kubernetesDeploy(configs: "secret.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "mongo-config.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "db_mongo_app.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "db_service.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "web-app.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "webapp-service.yml", kubeconfigId: "kubernetes")
+        withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+              sh "kubectl get pods"
+          }
         }
       }
     } 
